@@ -22,10 +22,14 @@ public class PeliculasServicios {
 
     public Pelicula buscaPorId(Long id) {
         Optional<Pelicula> peliculaOptional = peliculaRepositorio.findById(id);
-        if(peliculaOptional.isPresent()){
+        if (peliculaOptional.isPresent()) {
             return peliculaOptional.get();
-        }else{
+        } else {
             return null;
         }
+    }
+
+    public Pelicula guardaPelicula(Pelicula pelicula) {
+        return peliculaRepositorio.save(pelicula);
     }
 }
